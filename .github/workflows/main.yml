@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Generate Brute Force Alert Telemetry
         run: |
-          echo "Simulating 100+ failed login attempts from external IP..."
+          echo "Simulating 100+ failed login attempts..."
           
       - name: Send Alert to Tines SOAR Engine
         run: |
