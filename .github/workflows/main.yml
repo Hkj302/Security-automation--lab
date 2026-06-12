@@ -1,0 +1,24 @@
+name: Simulated Security Alert Pipeline
+
+on:
+  workflow_dispatch: # Allows you to trigger this alert manually with a button click
+
+jobs:
+  simulate-incident:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Brute Force Alert Telemetry
+        run: |
+          echo "Simulating 100+ failed login attempts from external IP..."
+          
+      - name: Send Alert to Tines SOAR Engine
+        run: |
+          curl -X POST "https://shy-sunset-8441.tines.com/webhook/your-first-story/85f901a32a91b02884738d6ca272eecd" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "event_type": "Brute Force Attack Detected",
+            "severity": "HIGH",
+            "target_host": "Ubuntu-Server-01",
+            "source_ip": "192.168.1.45",
+            "timestamp": "'$(date -u)'"
+          }'
