@@ -15,10 +15,14 @@ jobs:
         run: |
           curl -X POST "https://shy-sunset-8441.tines.com/webhook/your-first-story/85f901a32a91b02884738d6ca272eecd" \
           -H "Content-Type: application/json" \
+         - name: Send Alert to Tines SOAR Engine
+        run: |
+          curl -X POST "https://shy-sunset-8441.tines.com/webhook/your-first-story/85f901a32a91b02884738d6ca272eecd" \
+          -H "Content-Type: application/json" \
           -d '{
             "event_type": "Brute Force Attack Detected",
             "severity": "HIGH",
             "target_host": "Ubuntu-Server-01",
             "source_ip": "192.168.1.45",
-            "timestamp": "'$(date -u)'"
+            "timestamp": "2026-06-12"
           }'
